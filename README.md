@@ -14,7 +14,7 @@
 
 ========
 >V2只支持标签下再添加一层布局<br>
->>为了简单方便效率高，和考虑到实际用途，没写递归的方法，只能用一层布局，哪怕你一行只有一个RadioButton你也要在外面包一个布局<br>
+>>为了简单方便效率高，和考虑到实际用途，没写递归的方法，只能用一层布局，哪怕你一行只有一个RadioButton你也要在外面包一个Layout，只要是ViewGroup的子类都可以<br>
 
 ==========
 >我是参考12.6K的RadioGroup源码写的。从API20开始是这个版本的源码。之前的是12.9K的，只相差一个获取名字的方法<br>
@@ -28,4 +28,4 @@
 有什么BUG和建议，大家可以发邮件跟我讨论<br>
 我的邮箱：mrkey.k@gmail.com<br>
 
-![KeyRadioGroup](http://thumbnail0.baidupcs.com/thumbnail/9d8d54e89ad47968d0f0fbb163500a8b?fid=2989218704-250528-667390413110566&time=1480255200&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-QPLi7b0gCHoOfAGerbaU13d1yhc%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=7698389037000310722&dp-callid=0&size=c710_u400&quality=100)
+![KeyRadioGroup](http://thumbnail0.baidupcs.com/thumbnail/7135f1d4ce7bd913761d6250b7d6cc68?fid=2989218704-250528-1113938910098969&time=1480258800&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-5ms1unurBrAaNY3Woj%2B1aFYJqW8%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=7699416860513861435&dp-callid=0&size=c710_u400&quality=100)

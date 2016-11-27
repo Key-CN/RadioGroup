@@ -107,7 +107,7 @@
         <RadioButton
             android:id="@+id/rb2_main_001"
             style="@style/KeyRadioButton"
-            android:text="V2单独一个RadioButton是不支持的，就算单独一个外面也要再加一层布局，因为本身就是为了简化代码增加效率，考虑到实际这样的用法不多。所以懒得多写一个else if了"
+            android:text="V2是不支持单独一个控件的，因为本身就是为了简化和提升效率，而且考虑到实际这样的用法不多。所以懒得多写一个else if了，这是故意写的一个错误示范，如果想要这样单行的，必须外面再加一个ViewGroup子类"
             android:textSize="16sp" />
 
         <LinearLayout
