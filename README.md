@@ -1,8 +1,8 @@
 # KeyRadioGroup
 ==============
-*支持多行多列的复杂布局的RadioGroup<br>
-*Multiple rows and columns RadioGroup<br>
-    *If U don't understand the Chinese Notes. Please use the V1 version.You can write any layout under <KeyRadioGroupV1>
+* 支持多行多列的复杂布局的RadioGroup<br>
+* Multiple rows and columns RadioGroup<br>
+    * If U don't understand the Chinese Notes. Please use the V1 version.You can write any layout under <KeyRadioGroupV1>
 
 ==============
 ## 使用方法
@@ -21,7 +21,7 @@
 
 =================
 =================
-有什么BUG和建议，大家可以发邮件跟我讨论
+有什么BUG和建议，大家可以发邮件跟我讨论<br>
 我的邮箱：mrkey.k@gmail.com
 
 ![KeyRadioGroup](http://thumbnail0.baidupcs.com/thumbnail/9d8d54e89ad47968d0f0fbb163500a8b?fid=2989218704-250528-667390413110566&time=1480255200&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-QPLi7b0gCHoOfAGerbaU13d1yhc%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=7698389037000310722&dp-callid=0&size=c710_u400&quality=100)
