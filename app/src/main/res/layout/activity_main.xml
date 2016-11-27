@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="net.qjkj.keyradiogroup.MainActivity">
+
+    <Button
+        android:id="@+id/b_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="按下试试V1能不能正确获取ID" />
+
+    <net.qjkj.keyradiogroup.widget.KeyRadioGroupV1
+        android:id="@+id/krg_main_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rb_main_001"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="single1" />
+
+        <RadioButton
+            android:id="@+id/rb_main_002"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="single2" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rb_main_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Key" />
+
+            <RadioButton
+                android:id="@+id/rb_main_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CN" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_main_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="三层布局" />
+
+                <RadioButton
+                    android:id="@+id/rb_main_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="V1可以支持复杂布局" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_main_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Android" />
+
+            <RadioButton
+                android:id="@+id/rb_main_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IOS" />
+        </RadioGroup>
+
+    </net.qjkj.keyradiogroup.widget.KeyRadioGroupV1>
+
+    <Button
+        android:id="@+id/b_main_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="按下试试V2能不能正确获取ID" />
+
+    <net.qjkj.keyradiogroup.widget.KeyRadioGroupV2
+        android:id="@+id/krg_main_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rb2_main_001"
+            style="@style/KeyRadioButton"
+            android:text="V2单独一个RadioButton是不支持的，就算单独一个外面也要再加一层布局，因为本身就是为了简化代码增加效率，考虑到实际这样的用法不多。所以懒得多写一个else if了"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rb2_main_1"
+                style="@style/KeyRadioButton"
+                android:text="WINDOWS" />
+
+            <RadioButton
+                android:id="@+id/rb2_main_2"
+                style="@style/KeyRadioButton"
+                android:text="OS X" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb2_main_3"
+                style="@style/KeyRadioButton"
+                android:text="Rx-Android" />
+
+            <RadioButton
+                android:id="@+id/rb2_main_4"
+                style="@style/KeyRadioButton"
+                android:text="Rx-Java" />
+        </RadioGroup>
+
+    </net.qjkj.keyradiogroup.widget.KeyRadioGroupV2>
+
+
+</LinearLayout>
