@@ -3,6 +3,7 @@ package net.qjkj.keyradiogroup.widget;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.os.Build;
 import android.support.annotation.IdRes;
 import android.util.AttributeSet;
 import android.view.View;
@@ -243,8 +244,7 @@ public class KeyRadioGroupV2 extends LinearLayout {
          * @param heightAttr the height attribute to fetch
          */
         @Override
-        protected void setBaseAttributes(TypedArray a,
-                                         int widthAttr, int heightAttr) {
+        protected void setBaseAttributes(TypedArray a, int widthAttr, int heightAttr) {
 
             if (a.hasValue(widthAttr)) {
                 width = a.getLayoutDimension(widthAttr, "layout_width");
@@ -265,13 +265,6 @@ public class KeyRadioGroupV2 extends LinearLayout {
      * radio button changed in this group.</p>
      */
     public interface OnCheckedChangeListener {
-        /**
-         * <p>Called when the checked radio button has changed. When the
-         * selection is cleared, checkedId is -1.</p>
-         *
-         * @param group the group in which the checked radio button has changed
-         * @param checkedId the unique identifier of the newly checked radio button
-         */
         public void onCheckedChanged(KeyRadioGroupV2 group, @IdRes int checkedId);
     }
 
@@ -307,7 +300,12 @@ public class KeyRadioGroupV2 extends LinearLayout {
                     int id = ((ViewGroup) child).getChildAt(i).getId();
                     // generates an id if it's missing
                     if (id == View.NO_ID) {
-                        id = View.generateViewId(); //这个方法最低需要API17
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                            // generateViewId() 这个方法最低需要API17 这个方法用于生成ID , 这里做一下向下兼容
+                            id = View.generateViewId();
+                        } else {
+                            id = child.hashCode();
+                        }
                         ((ViewGroup) child).getChildAt(i).setId(id);
                     }
                     ((RadioButton) ((ViewGroup) child).getChildAt(i)).setOnCheckedChangeListener(

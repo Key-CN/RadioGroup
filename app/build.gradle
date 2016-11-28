@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.1"
     defaultConfig {
         applicationId "net.qjkj.keyradiogroup"
-        minSdkVersion 17
+        minSdkVersion 10
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"

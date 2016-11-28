@@ -22,7 +22,7 @@ import java.util.List;
  * description: 重写原生RadioGroup，用集合实现RadioGroup内可以再布局，从而实现多行多列的RadioGroup
  * {getAllRadioButton}
  * {addView}
- * @version 1.1
+ * @version 1.2
  * {@link PassThroughHierarchyChangeListener }
  */
 
@@ -36,18 +36,17 @@ public class KeyRadioGroupV1 extends LinearLayout {
     private OnCheckedChangeListener mOnCheckedChangeListener;
     private PassThroughHierarchyChangeListener mPassThroughListener;
 
-
     public KeyRadioGroupV1(Context context) {
         super(context);
         setOrientation(VERTICAL);
         init();
     }
 
-
     public KeyRadioGroupV1(Context context, AttributeSet attrs) {
         super(context, attrs);
         // retrieve selected radio button as requested by the user in the
         // XML layout file
+
         // com.android.internal.R.styleable.RadioGroup
         // com.android.internal.R.attr.radioButtonStyle
         TypedArray attributes = context.obtainStyledAttributes(attrs,
@@ -81,29 +80,9 @@ public class KeyRadioGroupV1 extends LinearLayout {
         mPassThroughListener.mOnHierarchyChangeListener = listener;
     }
 
-/*    public void setCheckWithoutNotif(int id){
-        if (id != -1 && (id == mCheckedId)) {
-            return;
-        }
-
-        mProtectFromCheckedChange = true;
-        if (mCheckedId != -1) {
-            setCheckedStateForView(mCheckedId, false);
-        }
-
-        if (id != -1) {
-            setCheckedStateForView(id, true);
-        }
-
-        mCheckedId = id;
-        mProtectFromCheckedChange = false;
-    }*/
-
-
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-
         // checks the appropriate radio button as requested in the XML file
         if (mCheckedId != -1) {
             mProtectFromCheckedChange = true;
@@ -151,21 +130,17 @@ public class KeyRadioGroupV1 extends LinearLayout {
         return allRadioButton;
     }
 
-
     public void check(@IdRes int id) {
         // don't even bother
         if (id != -1 && (id == mCheckedId)) {
             return;
         }
-
         if (mCheckedId != -1) {
             setCheckedStateForView(mCheckedId, false);
         }
-
         if (id != -1) {
             setCheckedStateForView(id, true);
         }
-
         setCheckedId(id);
     }
 
@@ -183,7 +158,6 @@ public class KeyRadioGroupV1 extends LinearLayout {
         }
     }
 
-
     @IdRes
     public int getCheckedRadioButtonId() {
         return mCheckedId;
@@ -199,12 +173,10 @@ public class KeyRadioGroupV1 extends LinearLayout {
         mOnCheckedChangeListener = listener;
     }
 
-
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
         return new KeyRadioGroupV1.LayoutParams(getContext(), attrs);
     }
-
 
     @Override
     protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
@@ -244,15 +216,12 @@ public class KeyRadioGroupV1 extends LinearLayout {
         }
 
         @Override
-        protected void setBaseAttributes(TypedArray a,
-                                         int widthAttr, int heightAttr) {
-
+        protected void setBaseAttributes(TypedArray a, int widthAttr, int heightAttr) {
             if (a.hasValue(widthAttr)) {
                 width = a.getLayoutDimension(widthAttr, "layout_width");
             } else {
                 width = WRAP_CONTENT;
             }
-
             if (a.hasValue(heightAttr)) {
                 height = a.getLayoutDimension(heightAttr, "layout_height");
             } else {
@@ -263,7 +232,6 @@ public class KeyRadioGroupV1 extends LinearLayout {
 
 
     public interface OnCheckedChangeListener {
-
         public void onCheckedChanged(KeyRadioGroupV1 group, @IdRes int checkedId);
     }
 
@@ -300,8 +268,13 @@ public class KeyRadioGroupV1 extends LinearLayout {
                     for(RadioButton button : allRadioButton){
                         int id = button.getId();
                         // generates an id if it's missing
-                        if (id == View.NO_ID && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                            id = View.generateViewId();
+                        if (id == View.NO_ID) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                                // generateViewId() 这个方法最低需要API17 这个方法用于生成ID , 这里做一下向下兼容
+                                id = View.generateViewId();
+                            } else {
+                                id = child.hashCode();
+                            }
                             button.setId(id);
                         }
                         // 不知道为什么setOnCheckedChangeWidgetListener方法不能调 RadioButton 的父类CompoundButton中是有这个方法的
@@ -310,7 +283,6 @@ public class KeyRadioGroupV1 extends LinearLayout {
                     }
                 }
             }
-
             if (mOnHierarchyChangeListener != null) {
                 mOnHierarchyChangeListener.onChildViewAdded(parent, child);
             }
@@ -325,7 +297,6 @@ public class KeyRadioGroupV1 extends LinearLayout {
                     }
                 }
             }
-
             if (mOnHierarchyChangeListener != null) {
                 mOnHierarchyChangeListener.onChildViewRemoved(parent, child);
             }
