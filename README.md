@@ -30,4 +30,4 @@
 有什么BUG和建议，大家可以发邮件跟我讨论<br>
 我的邮箱：mrkey.k@gmail.com<br>
 
-![KeyRadioGroup](http://thumbnail0.baidupcs.com/thumbnail/7135f1d4ce7bd913761d6250b7d6cc68?fid=2989218704-250528-1113938910098969&time=1480258800&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-5ms1unurBrAaNY3Woj%2B1aFYJqW8%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=7699416860513861435&dp-callid=0&size=c710_u400&quality=100)
+![KeyRadioGroup](https://github.com/Key-CN/pic-apk/blob/master/KeyRadioGroup.png)
